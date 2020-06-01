@@ -115,7 +115,11 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
+<<<<<<< HEAD
   controlID: 159
+=======
+  controlID: 16965
+>>>>>>> parent of 27249ce... I fixed pick up mechanism.
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -140,7 +144,11 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
+<<<<<<< HEAD
   controlID: 225
+=======
+  controlID: 16966
+>>>>>>> parent of 27249ce... I fixed pick up mechanism.
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -165,7 +173,11 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
+<<<<<<< HEAD
   controlID: 226
+=======
+  controlID: 16967
+>>>>>>> parent of 27249ce... I fixed pick up mechanism.
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -398,9 +410,15 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
       m_SelectedIDs: 16340000
       m_LastClickedID: 0
       m_ExpandedIDs: befaffff
+=======
+      m_SelectedIDs: d499ffff
+      m_LastClickedID: -26156
+      m_ExpandedIDs: 12beffff9ebeffff6afbffff5233000066330000
+>>>>>>> parent of 27249ce... I fixed pick up mechanism.
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -615,9 +633,15 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
     m_SelectedIDs: 10340000
     m_LastClickedID: 13328
     m_ExpandedIDs: 00000000c833000000ca9a3b
+=======
+    m_SelectedIDs: e4460000
+    m_LastClickedID: 18148
+    m_ExpandedIDs: 00000000ce33000000ca9a3b
+>>>>>>> parent of 27249ce... I fixed pick up mechanism.
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -645,7 +669,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000c8330000
+=======
+    m_ExpandedIDs: 00000000ce33000000ca9a3b
+>>>>>>> parent of 27249ce... I fixed pick up mechanism.
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -755,7 +783,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 13168
+  m_LastSelectedObjectID: -26156
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52

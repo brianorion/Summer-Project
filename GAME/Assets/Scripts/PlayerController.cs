@@ -162,7 +162,6 @@ public class PlayerController : MonoBehaviour
                 {
                     if (hit.transform.tag != "Ground")
                     {
-                        canPickUp = true;
                         Debug.Log("I pick up something");
                         canPickUp = true;
                         itemRb = hit.rigidbody;
@@ -178,7 +177,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        else if (Input.GetMouseButtonUp(0))
+        else if(Input.GetMouseButtonUp(0))
         {
             if (itemRb != null)
             {
@@ -186,7 +185,6 @@ public class PlayerController : MonoBehaviour
                 itemRb.isKinematic = false;
                 itemTransform.position = guide.position;
                 itemTransform.parent = null;
-                canPickUp = false;
             }
         }
     }
