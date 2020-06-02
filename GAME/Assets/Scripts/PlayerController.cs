@@ -177,10 +177,11 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
-        else if(Input.GetMouseButtonUp(0))
+        else if(Input.GetMouseButtonUp(0) && canPickUp)
         {
             if (itemRb != null)
             {
+                canPickUp = false;
                 itemRb.useGravity = true;
                 itemRb.isKinematic = false;
                 itemTransform.position = guide.position;
