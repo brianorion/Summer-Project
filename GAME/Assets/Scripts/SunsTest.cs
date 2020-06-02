@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//funny
 public class SunsTest : MonoBehaviour
 {
     // Start is called before the first frame update
