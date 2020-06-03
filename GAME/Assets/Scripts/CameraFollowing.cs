@@ -8,10 +8,13 @@ public class CameraFollowing : MonoBehaviour
     private GameObject thirdPersonCamera;
 
     private PlayerController playerController;
+    private GameObject thirdPersonCameraPrefab;
 
     private void Awake()
     {
-        thirdPersonCamera.SetActive(false);
+        thirdPersonCameraPrefab = Instantiate(thirdPersonCamera);
+        Debug.Log("Instantiated this prefab");
+        thirdPersonCameraPrefab.SetActive(false);
     }
 
     private void Start()
@@ -29,16 +32,22 @@ public class CameraFollowing : MonoBehaviour
     {
         if(!playerController.inFirstPerson)
         {
-            thirdPersonCamera.SetActive(true);
+            thirdPersonCameraPrefab.SetActive(true);
+            
+            // this disables the crosshair in the canvas when we are in third person mode.
+            GameCanvas.canvas.transform.GetChild(0).gameObject.SetActive(false);
         }
         else
         {
-            thirdPersonCamera.SetActive(false);
+            thirdPersonCameraPrefab.SetActive(false);
+
+            // we want to enable the crosshair in the canvas when we are in first person mode. 
+            GameCanvas.canvas.transform.GetChild(0).gameObject.SetActive(true);
         }
     }
 
     private void CameraFollow()
     {
-        thirdPersonCamera.transform.position = transform.position;
+        thirdPersonCameraPrefab.transform.position = transform.position;
     }
 }

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4591165667731222201
+--- !u!1 &1138969000
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,7 +8,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2337035155857237144}
+  - component: {fileID: 1138969001}
   m_Layer: 0
   m_Name: Guide
   m_TagString: Untagged
@@ -16,13 +16,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2337035155857237144
+--- !u!4 &1138969001
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4591165667731222201}
+  m_GameObject: {fileID: 1138969000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.25, z: 2.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 7567349061450343891}
   - component: {fileID: 4209245642198690929}
   - component: {fileID: 7499348602303767038}
-  - component: {fileID: 8263293651668607659}
+  - component: {fileID: 850594340}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -64,7 +64,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 528447505793718608}
-  - {fileID: 2337035155857237144}
+  - {fileID: 1138969001}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -163,9 +163,9 @@ MonoBehaviour:
   maximumCameraRotation: 360
   pickUpDistance: 5
   firstPersonCamera: {fileID: 7950984587243536933}
-  guide: {fileID: 2337035155857237144}
+  guide: {fileID: 1138969001}
   inFirstPerson: 1
---- !u!114 &8263293651668607659
+--- !u!114 &850594340
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -177,7 +177,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dba979b552843549b59a62a3bf1ca79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thirdPersonCamera: {fileID: 0}
+  thirdPersonCamera: {fileID: 5779405708044968740, guid: f70154b955d9edb48ba099413efa7bbf,
+    type: 3}
 --- !u!1 &7950984587243536933
 GameObject:
   m_ObjectHideFlags: 0

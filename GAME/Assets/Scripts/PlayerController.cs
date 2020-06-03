@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     private float maximumCameraRotation = 90f;
     [SerializeField]
     private float pickUpDistance = 5f;
+    [SerializeField][Range(0, 1)]
+    private float inAirSpeedDebuffRatio = 0.5f;
 
     [Header("Associated Objects")]
     [SerializeField]
@@ -30,6 +32,10 @@ public class PlayerController : MonoBehaviour
 
     private bool changeState = false;
     private bool canPickUp = false;
+    private bool inAir = false;
+
+    private float initialSpeed;
+    private float debuffSpeed;
     private Vector3 jumpVector;
 
     public bool inFirstPerson = true;
@@ -41,6 +47,8 @@ public class PlayerController : MonoBehaviour
         firstPersonCamera.SetActive(inFirstPerson);
         jumpVector = new Vector3(0f, jumpForce, 0f);
         Cursor.lockState = CursorLockMode.Locked;
+        initialSpeed = speed;
+        debuffSpeed = speed * inAirSpeedDebuffRatio;
     }
 
     private void Update()
@@ -60,6 +68,8 @@ public class PlayerController : MonoBehaviour
             inFirstPerson = true;
         }
         IsFirstPerson(inFirstPerson);
+        Debug.Log($"Speed: {speed}");
+
     }
 
 
@@ -82,6 +92,15 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
+        // if we are in air
+        if (inAir)
+        {
+            speed = debuffSpeed;
+        }
+        else
+        {
+            speed = initialSpeed;
+        }
         if (inFirstPerson)
         {
             // this ensures that the player will face towards and walk towards the forward or right direction of the camera. 
@@ -111,10 +130,11 @@ public class PlayerController : MonoBehaviour
         }
 
         // the jumping functionality doesn't depend on whether or not the player is in first person or in third person. Thus, I am doing it outside of the if statement. 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !inAir)
         {
             // At the moment, a person can have infinite jumps. Too lazy to fix it so I will do it later. 
             rb.AddForce(jumpVector, ForceMode.Impulse);
+            inAir = true;
         }
     }
 
@@ -187,6 +207,14 @@ public class PlayerController : MonoBehaviour
                 itemTransform.position = guide.position;
                 itemTransform.parent = null;
             }
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.tag == "Ground")
+        {
+            inAir = false;
         }
     }
 }
