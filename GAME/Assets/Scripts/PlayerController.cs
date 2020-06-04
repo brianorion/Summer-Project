@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     private Transform guide;
 
     private Rigidbody rb;
+    private Inventory inventory;
 
     // these are all of the item pick up
     private Rigidbody itemRb;
@@ -44,6 +45,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        inventory = GetComponent<Inventory>();
         firstPersonCamera.SetActive(inFirstPerson);
         jumpVector = new Vector3(0f, jumpForce, 0f);
         Cursor.lockState = CursorLockMode.Locked;
@@ -67,8 +69,12 @@ public class PlayerController : MonoBehaviour
             changeState = false;
             inFirstPerson = true;
         }
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            Item item = inventory.GetItem();
+        }
         IsFirstPerson(inFirstPerson);
-        Debug.Log($"Speed: {speed}");
 
     }
 
@@ -180,7 +186,15 @@ public class PlayerController : MonoBehaviour
             {
                 if (hit.distance <= pickUpDistance)
                 {
-                    if (hit.transform.tag != "Ground")
+                    // if the thing that has been selected is an Item.
+                    if (hit.transform.tag == "Item")
+                    {
+                        // we need to notify the Inventory script that we have collected an item.
+                        inventory.items.Add(hit.transform.GetComponent<Item>());
+                        hit.transform.gameObject.SetActive(false);
+                        Debug.Log("Picked up an Item");
+                    }
+                    else if (hit.transform.tag != "Ground")
                     {
                         Debug.Log("I pick up something");
                         canPickUp = true;
@@ -217,4 +231,5 @@ public class PlayerController : MonoBehaviour
             inAir = false;
         }
     }
+
 }
