@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 4209245642198690929}
   - component: {fileID: 7499348602303767038}
   - component: {fileID: 850594340}
+  - component: {fileID: 2900995431948035596}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -162,6 +163,7 @@ MonoBehaviour:
   jumpForce: 5
   maximumCameraRotation: 360
   pickUpDistance: 5
+  inAirSpeedDebuffRatio: 0.5
   firstPersonCamera: {fileID: 7950984587243536933}
   guide: {fileID: 1138969001}
   inFirstPerson: 1
@@ -179,6 +181,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thirdPersonCamera: {fileID: 5779405708044968740, guid: f70154b955d9edb48ba099413efa7bbf,
     type: 3}
+--- !u!114 &2900995431948035596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6182595007294223191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94fefba6aeaffb24eb20c3b92eb7e8a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7950984587243536933
 GameObject:
   m_ObjectHideFlags: 0

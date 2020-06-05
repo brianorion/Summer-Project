@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\CameraFollowing.cs" />
     <Compile Include="Assets\Scripts\GameCanvas.cs" />
     <Compile Include="Assets\Scripts\Inventory\Inventory.cs" />
+    <Compile Include="Assets\Scripts\Inventory\InventoryManager.cs" />
     <Compile Include="Assets\Scripts\Inventory\Item.cs" />
     <Compile Include="Assets\Scripts\Inventory\Weapons\Shield.cs" />
     <Compile Include="Assets\Scripts\Inventory\Weapons\Weapon.cs" />

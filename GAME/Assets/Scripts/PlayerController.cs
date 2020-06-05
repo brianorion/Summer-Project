@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.G))
         {
-            Item item = inventory.GetItem();
+            inventory.GetItem(guide.position, "Mystic Shield");
         }
         IsFirstPerson(inFirstPerson);
 
@@ -186,28 +186,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (hit.distance <= pickUpDistance)
                 {
-                    // if the thing that has been selected is an Item.
-                    if (hit.transform.tag == "Item")
-                    {
-                        // we need to notify the Inventory script that we have collected an item.
-                        inventory.items.Add(hit.transform.GetComponent<Item>());
-                        hit.transform.gameObject.SetActive(false);
-                        Debug.Log("Picked up an Item");
-                    }
-                    else if (hit.transform.tag != "Ground")
-                    {
-                        Debug.Log("I pick up something");
-                        canPickUp = true;
-                        itemRb = hit.rigidbody;
-                        itemTransform = hit.transform;
-
-
-                        itemRb.useGravity = false;
-                        itemRb.isKinematic = true;
-                        itemTransform.position = guide.position;
-                        itemTransform.rotation = guide.rotation;
-                        itemTransform.parent = guide;
-                    }
+                    PickUpItems(hit);
                 }
             }
         }
@@ -229,6 +208,39 @@ public class PlayerController : MonoBehaviour
         if (collision.collider.tag == "Ground")
         {
             inAir = false;
+        }
+    }
+
+    /// <summary>
+    /// This method deals with the storing part of the grabbing and dragging method. 
+    /// It checks whether or not the player clicked an item or if they clicked a ground. 
+    /// </summary>
+    /// <param name="hit">this variable stores data about the object that the player has just hit. </param>
+    private void PickUpItems(RaycastHit hit)
+    {
+        // if the thing that has been selected is an Item.
+        if (hit.transform.tag == "Item")
+        {
+            // we need to notify the Inventory script that we have collected an item.
+            Debug.Log("Picked up an Item");
+            Item item = hit.transform.GetComponent<Item>();
+            Debug.Log(item.name);
+            inventory.UpdateItem(item);
+            Destroy(hit.transform.gameObject);
+        }
+        else if (hit.transform.tag != "Ground")
+        {
+            Debug.Log("I pick up something");
+            canPickUp = true;
+            itemRb = hit.rigidbody;
+            itemTransform = hit.transform;
+
+
+            itemRb.useGravity = false;
+            itemRb.isKinematic = true;
+            itemTransform.position = guide.position;
+            itemTransform.rotation = guide.rotation;
+            itemTransform.parent = guide;
         }
     }
 
