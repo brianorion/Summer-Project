@@ -69,13 +69,12 @@ public class PlayerController : MonoBehaviour
             changeState = false;
             inFirstPerson = true;
         }
+        IsFirstPerson(inFirstPerson);
 
         if (Input.GetKeyDown(KeyCode.G))
         {
             inventory.GetItem(guide.position, "Mystic Shield");
         }
-        IsFirstPerson(inFirstPerson);
-
     }
 
 
