@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
     private bool changeState = false;
     private bool canPickUp = false;
     private bool inAir = false;
+    private GameObject lastDropped;
 
     private float initialSpeed;
     private float debuffSpeed;
@@ -73,7 +74,20 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.G))
         {
-            inventory.GetItem(guide.position, "Mystic Shield");
+            lastDropped = inventory.GetItemByName(guide.position, "Mystic Shield");
+        }
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            Vector3 inFront = firstPersonCamera.GetComponent<Camera>().ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 2.0f));
+            lastDropped = inventory.GetItemByName(inFront, "Grenade");
+            if (lastDropped != null)
+            {
+                if (lastDropped.GetComponent<Projectile>() != null)
+                {
+                    Projectile projectileScript = lastDropped.GetComponent<Projectile>();
+                    projectileScript.ThrowItem(firstPersonCamera.transform.rotation);
+                }
+            }
         }
     }
 

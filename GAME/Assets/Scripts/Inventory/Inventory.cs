@@ -21,7 +21,7 @@ public class Inventory : MonoBehaviour
         }
         Debug.Log("Updated the item into the storage");
     }
-    public void GetItem(Vector3 location, string name)
+    public GameObject GetItemByName(Vector3 location, string name)
     {
         // we need to first check if the player has the item
         if(inventory.ContainsKey(name) && inventory[name] > 0)
@@ -30,11 +30,13 @@ public class Inventory : MonoBehaviour
             GameObject instantiatedItem = Instantiate(InventoryManager.inventoryManager.GetItemPrefab(name), location, Quaternion.identity);
             // we need to tell the inventory that we just grabbed an item from the inventory
             inventory[name] -= 1;
+            return instantiatedItem;
         }
         else
         {
             // this is for debugging purposes. 
             Debug.Log($"The inventory does not have the name {name}");
+            return null;
         }
         
     }
