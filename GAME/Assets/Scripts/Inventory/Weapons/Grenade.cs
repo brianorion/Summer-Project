@@ -9,6 +9,7 @@ public class Grenade : Projectile
     Dictionary<string, WeaponData> grenadeData = new Dictionary<string, WeaponData>();
     private Rigidbody rb;
 
+
     private void Start()
     {
         haveUpdatedGrenadeInformation = true;
@@ -21,5 +22,4 @@ public class Grenade : Projectile
     {
         return grenadeData;
     }
-
 }
