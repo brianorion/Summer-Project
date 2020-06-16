@@ -14,7 +14,7 @@ public class Projectile : Weapon
         rb = GetComponent<Rigidbody>();
     }
 
-    public void ThrowItem(Quaternion orientation)
+    public virtual void ThrowItem(Quaternion orientation)
     {
         if (rb == null) rb = GetComponent<Rigidbody>();
         rb.AddForce(orientation * Vector3.forward * launchForce);
